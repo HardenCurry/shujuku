@@ -2,6 +2,10 @@
 // 地址
 $login = 'login.php';
 $sign = 'sign.php';
+$manage_customer = '管理顾客.php';
+$search_book = '检索页面.php';
+$delete_customer = 'delCustomer.php';
+$delete_book = 'delBook.php';
 // sql
 $servername = "localhost";
 $username = "root";
@@ -22,14 +26,12 @@ function executeSql($sql)
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-
         $query_result = mysqli_query($conn, $sql);
         if ($query_result) {
             $flag = true;
             $feedback = $query_result;
-            $ct = mysqli_num_rows($feedback);
         }
-        return array($flag, $ct, $feedback);
+        return array($flag, $feedback);
     }
 }
 function templete($character)
@@ -52,7 +54,7 @@ function templete($character)
                 <a href='管理顾客.php'>用户管理</a>
             </div>
         </div>
-        <div id='addbook' style='        
+        <div id='addbook' style=' 
                 position:absolute;
                 top:10px;
                 right:180px;'>
@@ -70,6 +72,14 @@ function templete($character)
 </div>";
     } else {
         print "
+    <div id='addbook' style='        
+        position:absolute;
+        top:10px;
+        right:180px;'>
+    <div>
+        <a href='orders.php'>我的订单</a>
+    </div>
+</div>
 <div id='addbook' style=' 
         position:absolute;
         top:10px;
@@ -78,15 +88,6 @@ function templete($character)
         <a href='view_shopCart.php'>购物车</a>
     </div>
 </div>
-<div id='addbook' style='        
-        position:absolute;
-        top:10px;
-        right:180px;'>
-    <div>
-        <a href='orders.php'>我的订单</a>
-    </div>
-</div>
-
 <div id='logout' style='       
         position:absolute;
         top:10px;

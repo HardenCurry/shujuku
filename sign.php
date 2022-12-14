@@ -24,19 +24,24 @@ include("常用的.php");
 		// 检查是否是已有的账号
 		$sql = "SELECT cid FROM customer WHERE caccount='" . $account . "';";
 		$result = executeSql($sql);
-		if ($result[1]) {
+		if ($result[0] & mysqli_num_rows($result[1]) >= 1) {
 			echo "<script>alert('已绑定的账号')</script>";
+			header("Refresh:1; url=" . $sign);
 		} else {
 			$sql = "SELECT cid FROM customer WHERE cphone='" . $phone . "';";
 			$result = executeSql($sql);
-			if ($result[1]) {
+			if ($result[0] & mysqli_num_rows($result[1]) >= 1) {
 				echo "<script>alert('已绑定的手机号')</script>";
+				header("Refresh:1; url=" . $sign);
 			} else {
 				$sql = "INSERT INTO customer (caccount,cpassword,cphone,caddress,csex,cname) VALUES('" . $account . "','" . $pwd . "','" . $phone . "','" . $address . "','" . $sex . "','" . $userName . "');";
 				$result = mysqli_query($conn, $sql);
 				if ($result) {
 					echo "<script>alert('注册成功')</script>";
 					header("Refresh:1; url=" . $login);
+				} else {
+					echo "<script>alert('注册失败')</script>";
+					header("Refresh:1; url=" . $sign);
 				}
 			}
 		}

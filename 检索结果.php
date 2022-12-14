@@ -16,7 +16,7 @@ session_start();
 $character = $_SESSION['charactor'];
 if ($character == "worker") {
   $wname = $_SESSION['wname'];
-  echo "<h2>欢迎" . $wname . "进入书店!</h2>";
+  echo "<h2>管理书籍</h2>";
 } else {
   $cname = $_SESSION['cname'];
   echo "<h2>欢迎" . $cname . "进入书店!</h2>";
