@@ -3,18 +3,16 @@
 <!-- 要改 title,form-action,功能 -->
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>检索页面</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="网购模板.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>检索页面</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="网购模板.css" rel="stylesheet">
 </head>
 <!-- 检索页面与检索结果html一样 -->
 <?php session_start();
-$character = $_SESSION['charactor'];
+$character = $_SESSION['character'];
 if ($character == "worker") {
   $wname = $_SESSION['wname'];
   echo "<h2>管理书籍</h2>";
@@ -25,33 +23,33 @@ if ($character == "worker") {
 ?>
 
 <body>
-    <?php
+  <?php
   include("常用的.php");
   templete($character);
   ?>
-    <form action='检索结果.php' method='get' class='search-box'>
-        <select name="search_type" class='search-type'>
-            <option value="bname">书名</option>
-            <option value="aname">作者</option>
-            <option value="ISBN">ISBN</option>
-        </select>
-        <input class='search-txt' type="text" name='search' size='20' required=required placeholder="请输入" />
-        <button class='search-btn' type="submit"><i class="fas fa-search"></i></button>
-    </form>
-    </form>
-    <table border="1" align="center" width='100%'>
-        <tr>
-            <th align="center" width="15%">图片</th>
-            <th align="center" width="15%">书名</th>
-            <th align="center" width="15%">作者</th>
-            <th align="center" width="10%">出版时期</th>
-            <th align="center" width="10%">页数</th>
-            <th align="center" width="10%">价格</th>
-            <th align="center" width="10%">库存</th>
-            <th align="center" width="15%">功能</th>
-        </tr>
+  <form action='检索结果.php' method='get' class='search-box'>
+    <select name="search_type" class='search-type'>
+      <option value="bname">书名</option>
+      <option value="aname">作者</option>
+      <option value="ISBN">ISBN</option>
+    </select>
+    <input class='search-txt' type="text" name='search' size='20' required=required placeholder="请输入" />
+    <button class='search-btn' type="submit"><i class="fas fa-search"></i></button>
+  </form>
+  </form>
+  <table border="1" align="center" width='100%'>
+    <tr>
+      <th align="center" width="15%">图片</th>
+      <th align="center" width="15%">书名</th>
+      <th align="center" width="15%">作者</th>
+      <th align="center" width="10%">出版时期</th>
+      <th align="center" width="10%">页数</th>
+      <th align="center" width="10%">价格</th>
+      <th align="center" width="10%">库存</th>
+      <th align="center" width="15%">功能</th>
+    </tr>
 
-        <?php
+    <?php
     $servername = "localhost";
     $username = 'root';
     $password = '';
@@ -123,7 +121,7 @@ if ($character == "worker") {
     }
     mysqli_close($conn);
     ?>
-    </table>
+  </table>
 </body>
 
 </html>

@@ -17,13 +17,8 @@
 
 	$userName = $_POST["username"];
 	$pwd = $_POST["psw"];
+	$selected_character = $_POST["character"];
 
-	if (isset($_POST["submit"])) {
-		$selected_Charactor = $_POST["character"];
-	} else {
-		echo "You have choose the wrong charactor!";
-		echo "<br>";
-	}
 
 	if ($userName == "" || $pwd == "") {
 		echo "None of the value can be empty!";
@@ -31,13 +26,13 @@
 	}
 
 	//判断店员登入
-	if ($selected_Charactor == "admin") {
+	if ($selected_character == "admin") {
 		$wsql = "SELECT wid,wname FROM worker WHERE wname ='$userName' and wpassword='$pwd' ;";
 		$wquery_result = mysqli_query($conn, $wsql);
 		$arow = mysqli_fetch_assoc($wquery_result);
 
 		if (empty($arow) != "ture") {
-			$_SESSION['charactor'] = 'worker';
+			$_SESSION['character'] = 'worker';
 			$_SESSION['wid'] = $arow["wid"];
 			$_SESSION['wname'] = $arow["wname"];
 			header('Location:检索页面.php');
@@ -47,7 +42,7 @@
 		}
 	}	//判断顾客登入
 	else {
-		if ($selected_Charactor == "user") {
+		if ($selected_character == "user") {
 			$sql = "SELECT * FROM customer WHERE caccount= '$userName' and cpassword = '$pwd' ;";
 			$query_result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_assoc($query_result);
