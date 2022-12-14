@@ -40,9 +40,9 @@ echo "<br>";
 echo "<br>";
 var_dump($_SESSION);
 session_start();
-$_SESSION['charactor'] = "customer";
+$_SESSION['character'] = "customer";
 $_SESSION['cid'] = $u_id;
 $_SESSION['phone'] = $phone;
 $_SESSION['address'] = $address;
 $_SESSION['cname'] = $cname;
-header("location:view_shopCart.php");?>
+header("location:view_shopCart.php");
