@@ -36,54 +36,70 @@ function executeSql($sql)
 }
 function templete($character)
 {
-	if ($character == 'worker') {
-		print "
-        <div id='addbook' style=' 
+    if ($character == 'worker') {
+        print "
+        <div style=' 
                 position:absolute;
                 top:10px;
-                right:280px;'>
+                right:320px;'>
             <div>
                 <a href='检索页面.php'>首页</a>
             </div>
         </div>
-        <div id='addbook' style=' 
+        <div style=' 
                 position:absolute;
                 top:10px;
-                right:95px;'>
+                right:240px;'>
             <div>
-                <a href='管理顾客.php'>用户管理</a>
+                <a href= '催单列表.php'>催单列表</a>
             </div>
         </div>
-        <div id='addbook' style=' 
+        <div style=' 
                 position:absolute;
                 top:10px;
-                right:180px;'>
+                right:160px;'>
             <div>
                 <a href='订单管理.php'>订单管理</a>
             </div>
-        </div>  
-<div id='logout' style=' 
+        </div> 
+        <div style=' 
+                position:absolute;
+                top:10px;
+                right:80px;'>
+            <div>
+                <a href='管理顾客.php'>用户管理</a>
+            </div>
+        </div> 
+        <div id='logout' style=' 
         position:absolute;
         top:10px;
         right:30px;'>
-    <div>
-        <a href='login.php'>注销</a>
-    </div>
-</div>";
+            <div>
+                <a href='login.php'>注销</a>
+            </div>
+        </div>";
     } else {
         print "
-    <div id='addbook' style='        
+<div style=' 
         position:absolute;
         top:10px;
-        right:180px;'>
+        right:250px;'>
+    <div>
+        <a href='检索页面.php'>首页</a>
+    </div>
+</div>
+<div style='        
+        position:absolute;
+        top:10px;
+        right:160px;'>
     <div>
         <a href='orders.php'>我的订单</a>
     </div>
 </div>
-<div id='addbook' style=' 
+<div style=' 
         position:absolute;
         top:10px;
-        right:95px;'>
+        right:90px;'>
     <div>
         <a href='view_shopCart.php'>购物车</a>
     </div>
