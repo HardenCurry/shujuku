@@ -10,7 +10,7 @@
 	$dbname = "bshop";
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
-
+	mysqli_query($conn, 'set names utf8');
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
@@ -31,7 +31,7 @@
 		$wquery_result = mysqli_query($conn, $wsql);
 		$arow = mysqli_fetch_assoc($wquery_result);
 
-		if (empty($arow) != "ture") {
+		if (!empty($arow)) {
 			$_SESSION['character'] = 'worker';
 			$_SESSION['wid'] = $arow["wid"];
 			$_SESSION['wname'] = $arow["wname"];
@@ -46,8 +46,8 @@
 			$sql = "SELECT * FROM customer WHERE caccount= '$userName' and cpassword = '$pwd' ;";
 			$query_result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_assoc($query_result);
-			if (empty($row) != "ture") {
-				$_SESSION['charactor'] = 'customer';
+			if (!empty($row)) {
+				$_SESSION['character'] = 'customer';
 				$_SESSION['cid'] = $row["cid"];
 				$_SESSION['phone'] = $row["cphone"];
 				$_SESSION['address'] = $row["caddress"];

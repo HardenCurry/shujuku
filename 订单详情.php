@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>检索结果</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="网购模板.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>订单详情</title>
+    <link href="网购模板.css" rel="stylesheet">
 </head>
 <?php
 session_start();
@@ -24,27 +23,28 @@ echo "<h2>订单" . $oid . "</h2>";
 ?>
 
 <body>
-  <a align='center' href='<?php echo $_SESSION['wy']; ?>' style="position:absolute; top:48px; left:120px;">
-    <h2>返回<h2>
-  </a>
-  <?php
+    <?php
   include("常用的.php");
   templete($character);
   ?>
 
-  <table border="1" align="center" width='100%'>
-    <tr>
-      <th align="center" width="15%">图片</th>
-      <th align="center" width="15%">书名</th>
-      <th align="center" width="15%">作者</th>
-      <th align="center" width="10%">出版时期</th>
-      <th align="center" width="10%">页数</th>
-      <th align="center" width="10%">价格</th>
-      <th align="center" width="10%">数量</th>
+    <a align='center' href='<?php echo $_SESSION['wy']; ?>' style="position:absolute; top:80px; left:95px;">返回
+    </a>
 
-    </tr>
 
-    <?php
+    <table border="1" align="center" width='100%'>
+        <tr>
+            <th align="center" width="15%">图片</th>
+            <th align="center" width="15%">书名</th>
+            <th align="center" width="15%">作者</th>
+            <th align="center" width="10%">出版时期</th>
+            <th align="center" width="10%">页数</th>
+            <th align="center" width="10%">价格</th>
+            <th align="center" width="10%">数量</th>
+
+        </tr>
+
+        <?php
 
 
 
@@ -58,14 +58,6 @@ echo "<h2>订单" . $oid . "</h2>";
     if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL:" . mysqli_connect_error();
     }
-
-
-
-
-
-
-
-
 
     function query($sql)
     {
@@ -106,9 +98,6 @@ echo "<h2>订单" . $oid . "</h2>";
         echo "<td align='center'>" . $bpage . "页</td>";
         echo "<td align='center'>" . $bprice . "元</td>";
         echo "<td align='center'>" . $bamount . "本</td>";
-        echo "<td align='center'>";
-
-        echo "</td>";
         echo "</tr>";
       }
     }

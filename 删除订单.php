@@ -6,8 +6,8 @@
 
 <body>
     <?php
-    session_start();
-    
+  session_start();
+
   $oid = $_GET['oid'];
   $servername = "localhost";
   $username = "root";
@@ -15,7 +15,7 @@
   $dbname = "bshop";
 
   $conn = mysqli_connect($servername, $username, $password, $dbname);
-
+  mysqli_query($conn, 'set names utf8');
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
@@ -25,7 +25,7 @@
   $row = mysqli_fetch_assoc($result);
   $ostatus = implode("-", $row);
   //删除实现
-  if ($ostatus == 0) {
+  if ($ostatus == '未发货') {
     //返还库存
     $num_sql = "SELECT * FROM bouni WHERE oid ='$oid';";
     $num_result = mysqli_query($conn, $num_sql); //result is a PHP array

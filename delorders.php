@@ -13,6 +13,7 @@
   $dbname = "bshop";
 
   $conn = mysqli_connect($servername, $username, $password, $dbname);
+  mysqli_query($conn, 'set names utf8');
 
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -20,10 +21,9 @@
   //判断状态是否可删除
   $sql = "SELECT ostatus FROM orders where oid='$oid';";
   $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-  $ostatus = implode("-", $row);
+  $ostatus = mysqli_fetch_assoc($result)['ostatus'];
   //删除实现
-  if ($ostatus == 0) {
+  if ($ostatus == '未发货') {
     //返还库存
     $num_sql = "SELECT * FROM bouni WHERE oid ='$oid';";
     $num_result = mysqli_query($conn, $num_sql); //result is a PHP array
@@ -43,7 +43,7 @@
     mysqli_query($conn, $del_sql);
   ?>
     <a align='center' href='orders.php'>返回订单</a>
-    <?php } else {
+    <?php } else if ($ostatus == '已发货') {
     echo "订单处于发货后不可取消"; ?>
     <a align='center' href='orders.php'>返回订单</a>
     <?php }

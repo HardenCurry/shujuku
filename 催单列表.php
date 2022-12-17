@@ -3,12 +3,14 @@
 <!-- 要改 title,form-action,功能 -->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>检索页面</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="网购模板.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>检索页面</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="网购模板.css" rel="stylesheet">
 </head>
 <!-- 检索页面与检索结果html一样 -->
 <?php session_start();
@@ -24,36 +26,35 @@ $_SESSION['wy'] = "催单列表.php";
 ?>
 
 <body>
-  <?php
+    <?php
   include("常用的.php");
   templete($character);
   ?>
-  <form action='订单检索结果.php' method='get' class='search-box'>
-    <select name="search_type" class='search-type'>
-      <option value="oid">订单号</option>
-      <option value="status">订单状态</option>
-      <option value="date">订单时间</option>
-      <option value="cid">顾客id</option>
-    </select>
-    <input class='search-txt' type="text" name='search' size='30' required=required placeholder="请输入" />
-    <button class='search-btn' type="submit"><i class="fas fa-search"></i></button>
-  </form>
-  <a href='订单管理.php?oid=" . $oid . "' style="position:absolute; top:90px; right:700px;">返回</a>
+    <form action='订单检索结果.php' method='get' class='search-box'>
+        <select name="search_type" class='search-type'>
+            <option value="oid">订单号</option>
+            <option value="status">订单状态</option>
+            <option value="date">订单时间</option>
+            <option value="cid">顾客id</option>
+        </select>
+        <input class='search-txt' type="text" name='search' size='30' required=required placeholder="请输入" />
+        <button class='search-btn' type="submit"><i class="fas fa-search"></i></button>
+    </form>
 
-  <table border="1" align="center" width='100%'>
-    <tr>
-      <th align="center" width="15%">订单号</th>
-      <th align="center" width="15%">订单时间</th>
-      <th align="center" width="15%">订单顾客id</th>
-      <th align="center" width="10%">地址</th>
-      <th align="center" width="10%">手机号</th>
-      <th align="center" width="10%">留言</th>
-      <th align="center" width="10%">状态</th>
-      <th align="center" width="10%">催单</th>
-      <th align="center" width="15%">功能</th>
-    </tr>
+    <table border="1" align="center" width='100%'>
+        <tr>
+            <th align="center" width="15%">订单号</th>
+            <th align="center" width="15%">订单时间</th>
+            <th align="center" width="15%">订单顾客id</th>
+            <th align="center" width="10%">地址</th>
+            <th align="center" width="10%">手机号</th>
+            <th align="center" width="10%">留言</th>
+            <th align="center" width="10%">状态</th>
+            <th align="center" width="10%">催单</th>
+            <th align="center" width="15%">功能</th>
+        </tr>
 
-    <?php
+        <?php
     $servername = "localhost";
     $username = 'root';
     $password = '';
@@ -106,7 +107,7 @@ $_SESSION['wy'] = "催单列表.php";
     }
     mysqli_close($conn);
     ?>
-  </table>
+    </table>
 </body>
 
 </html>
