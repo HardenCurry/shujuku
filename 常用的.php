@@ -41,9 +41,17 @@ function templete($character)
         <div style=' 
                 position:absolute;
                 top:10px;
-                right:320px;'>
+                right:380px;'>
             <div>
                 <a href='检索页面.php'>首页</a>
+            </div>
+        </div>
+        <div style=' 
+                position:absolute;
+                top:10px;
+                right:320px;'>
+            <div>
+                <a href='管理员_录书.html'>录书</a>
             </div>
         </div>
         <div style=' 
