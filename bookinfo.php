@@ -111,7 +111,7 @@ $dbname = "bshop";
           echo '<td><img style="display:block;margin-left:auto;margin-right:auto;"src="data:image/jpeg;base64,' . base64_encode($bpicture) . '"text-align="center" alt="Not ready" height="200px"/></td>';
           echo "<td align='center'>";
       		if ($character == "worker") {
-        	echo "<a href='editbook.php?bid=" . $bid . "'>修改书籍";
+        	echo "<a href='edit.php?bid=" . $bid . "'>修改书籍";
         	echo "<br>";
         	echo "<a href='delbook.php?bid=" . $bid . "'>删除书籍";
       		} else {
